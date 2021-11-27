@@ -11,13 +11,6 @@ function App() {
         <a className="gen-logo" href="/">
           QenQr
         </a>
-        <a
-          className="btn-outline"
-          target="blank"
-          href="https://www.paypal.com/donate?business=AKNFF9KV6L98Q&no_recurring=0&currency_code=BRL"
-        >
-          Doar para o projeto
-        </a>
       </header>
       <section>
         <div className="container">
