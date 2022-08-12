@@ -3,21 +3,16 @@ import "./App.css";
 import QenQr from "./genQr";
 
 function App() {
-  const [text, setText] = useState("");
+  const [qrr, setQrr] = useState("");
 
   return (
     <div className="App">
-      <header className="container">
-        <a className="gen-logo" href="/">
-          QenQr
-        </a>
-      </header>
       <section>
         <div className="container">
           <div className="content">
             <div className="qr-section">
               <div className="qr-content">
-                <QenQr className="gen-code" text={text}></QenQr>
+                <QenQr className="gen-code" text={qrr}></QenQr>
               </div>
               <p>Não armazenamos nenhum dado informado.</p>
               <div className="forms">
@@ -25,9 +20,9 @@ function App() {
                   type="text"
                   placeholder="Link do QR Code"
                   onChange={(element) => {
-                    setText(element.target.value);
+                    setQrr(element.target.value);
                   }}
-                  value={text}
+                  value={qrr}
                 ></input>
               </div>
             </div>
