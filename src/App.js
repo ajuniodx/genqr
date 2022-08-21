@@ -40,7 +40,12 @@ function App() {
                   }}
                   value={qrr}
                 ></input>
-                <a className="btn-primary " href={downQr} download="genqr.png">
+                <a
+                  className="btn-primary "
+                  href={downQr}
+                  download="genqr.png"
+                  disabled={false}
+                >
                   Baixar QrCode
                 </a>
               </div>
@@ -50,10 +55,7 @@ function App() {
               <ul className="list-about">
                 <li>Digite ou cole seu o link no campo.</li>
                 <li>Aponte sua camera para testar o QR Code.</li>
-                <li>
-                  Clique no Botão direito na imagem clique em copiar ou baixar
-                  imagem, e pronto.
-                </li>
+                <li>Clique no Botão "Baixar QrCode" e pronto.</li>
               </ul>
               <p>
                 O gerador de QR Code é uma ótima ferramenta para ações de
