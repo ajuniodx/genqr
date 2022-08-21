@@ -1,9 +1,24 @@
 import React, { useState } from "react";
+import QRCode from "react-qr-code";
+import QRCodeLink from "qrcode";
 import "./App.css";
-import QenQr from "./genQr";
 
 function App() {
   const [qrr, setQrr] = useState("");
+  const [downQr, setDownQr] = useState("");
+
+  function generateDownload(link_url) {
+    QRCodeLink.toDataURL(
+      link_url,
+      {
+        width: 1000,
+        margin: 2,
+      },
+      function (err, url) {
+        setDownQr(url);
+      }
+    );
+  }
 
   return (
     <div className="App">
@@ -12,7 +27,7 @@ function App() {
           <div className="content">
             <div className="qr-section">
               <div className="qr-content">
-                <QenQr className="gen-code" text={qrr}></QenQr>
+                <QRCode viewBox={`0 0 256 256`} value={qrr} />
               </div>
               <p>Não armazenamos nenhum dado informado.</p>
               <div className="forms">
@@ -21,9 +36,13 @@ function App() {
                   placeholder="Link do QR Code"
                   onChange={(element) => {
                     setQrr(element.target.value);
+                    generateDownload(element.target.value);
                   }}
                   value={qrr}
                 ></input>
+                <a className="btn-primary " href={downQr} download="genqr.png">
+                  Baixar QrCode
+                </a>
               </div>
             </div>
             <div className="qr-about">
